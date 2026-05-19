@@ -7,6 +7,9 @@ const ulTarefas = document.querySelector(".app__section-task-list");
 const btnCancelarTarefa = document.querySelector(
   ".app__form-footer__button--cancel",
 );
+const paragrafoDescricaoTarefa = document.querySelector(
+  ".app__section-active-task-description",
+);
 
 const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
@@ -35,9 +38,9 @@ function criarElementoTarefa(tarefa) {
   const botao = document.createElement("button");
 
   botao.onclick = () => {
-    debugger;
+    //debugger;
     const novaDescricao = prompt("Qual é o novo nome da tarefa?");
-    console.log("'Nova descrição da tarefa: ", novaDescricao);
+    //console.log("'Nova descrição da tarefa: ", novaDescricao);
     if (novaDescricao) {
       paragrafo.textContent = novaDescricao;
       tarefa.descricao = novaDescricao;
@@ -54,6 +57,11 @@ function criarElementoTarefa(tarefa) {
   li.append(svg);
   li.append(paragrafo);
   li.append(botao);
+
+  li.onclick = () => {
+    paragrafoDescricaoTarefa.textContent = tarefa.descricao;
+    li.classList.add("app__section-task-list-item-active");
+  };
 
   return li;
 }
