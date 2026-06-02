@@ -16,7 +16,7 @@ const musicaPause = new Audio("/Projeto-Fokus/sons/pause.mp3");
 const musicaBeep = new Audio("/Projeto-Fokus/sons/beep.mp3");
 musica.loop = true;
 
-let tempoDecorridoEmSegundos = 1500;
+let tempoDecorridoEmSegundos = 100;
 let intervaloId = null;
 
 imagemIconBT.src = "/Projeto-Fokus/imagens/play_arrow.png";
